@@ -1,29 +1,23 @@
 pipeline {
     agent any
     tools {
-        maven 'Latest'
+        cmake 'Latest'
     }
     stages {
         stage('Checkout')
         {
             steps {
-                git branch: 'main', credentialsId: 'cc220cf9-31c8-4804-971b-dcb93036e30a', url: 'git@github.com:tchitchidead/hello_world.git'
-            }
-        }
-        stage('Generate')
-        {
-            steps {
-                sh 'mvn generate-test-resources process-test-resources'
+                git branch: 'master', credentialsId: 'cc220cf9-31c8-4804-971b-dcb93036e30a', url: 'git@github.com:tchitchidead/push_swap-1.git'
             }
         }
         stage('Compile') {
             steps {
-                sh 'mvn compile'
+                sh 'cmakeBuild buildDir: 'build', installation: 'Latest''
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn -Dmaven.test.failure.ignore=true -DtestFailureIgnore=true test'
+                sh 'ctest 'Latest''
             }
         }
         stage('Generate Jar') {
