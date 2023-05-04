@@ -16,15 +16,5 @@ pipeline {
                 installation: 'InSearchPath'
             }
         }    
-        stage('Test') {
-            steps {
-                //sh 'ctest 'Latest''
-            }
-        }
-        //stage('Generate Jar') {
-        //    steps {
-        //        sh 'mvn -Dmaven.test.failure.ignore=true -DtestFailureIgnore=true package'
-        //    }
-        //}
     }   
 }
