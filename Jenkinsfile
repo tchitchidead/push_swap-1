@@ -12,8 +12,8 @@ pipeline {
         }
         stage('Build') {
             steps {
-                cmakeBuild
-                installation: 'InSearchPath'
+                sh 'make -f push_swap'
+                sh 'make -f checker'
             }
         }    
     }   
