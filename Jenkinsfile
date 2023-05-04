@@ -12,9 +12,10 @@ pipeline {
         }
         stage('Compile') {
             steps {
-                sh 'cmakeBuild buildDir: 'build', installation: 'Latest''
+                cmakeBuild
+                installation: 'InSearchPath'
             }
-        }
+        }    
         stage('Test') {
             steps {
                 sh 'ctest 'Latest''
