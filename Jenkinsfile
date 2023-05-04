@@ -1,8 +1,8 @@
 pipeline {
     agent any
-    tools {
-        cmake 'Latest'
-    }
+    //tools {
+    //    cmake 'Latest'
+    //}
     stages {
         stage('Checkout')
         {
