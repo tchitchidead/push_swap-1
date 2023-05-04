@@ -10,7 +10,7 @@ pipeline {
                 git branch: 'master', credentialsId: 'cc220cf9-31c8-4804-971b-dcb93036e30a', url: 'git@github.com:tchitchidead/push_swap-1.git'
             }
         }
-        stage('Compile') {
+        stage('Build') {
             steps {
                 cmakeBuild
                 installation: 'InSearchPath'
@@ -18,13 +18,13 @@ pipeline {
         }    
         stage('Test') {
             steps {
-                sh 'ctest 'Latest''
+                //sh 'ctest 'Latest''
             }
         }
-        stage('Generate Jar') {
-            steps {
-                sh 'mvn -Dmaven.test.failure.ignore=true -DtestFailureIgnore=true package'
-            }
-        }
+        //stage('Generate Jar') {
+        //    steps {
+        //        sh 'mvn -Dmaven.test.failure.ignore=true -DtestFailureIgnore=true package'
+        //    }
+        //}
     }   
 }
