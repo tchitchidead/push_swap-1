@@ -25,4 +25,5 @@ pipeline {
                 sh 'mvn -Dmaven.test.failure.ignore=true -DtestFailureIgnore=true package'
             }
         }
+    }   
 }
