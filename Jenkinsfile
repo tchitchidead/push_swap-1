@@ -1,6 +1,12 @@
 pipeline {
     agent any
     stages {
+        stage('Checkout Git')
+        {
+            steps {
+                git branch: 'master', credentialsId: 'cc220cf9-31c8-4804-971b-dcb93036e30a', url: 'git@github.com:tchitchidead/push_swap.git'
+            }
+        }
         stage('Nettoyage') {
             steps {
                sh 'export TERM=xterm; make clean'
