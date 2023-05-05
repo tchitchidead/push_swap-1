@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage('Nettoyage') {
+            steps {
+               sh 'export TERM=xterm; make clean'
+            }
+        }  
         stage('build push_swap') {
             steps {
                sh 'export TERM=xterm; make push_swap'
